@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 import time
 from dask import dataframe as df1
-from sklearn import preprocessing
+from sklearn import preprocessing, tree, naive_bayes
 def main_best_algorithm(home_team, away_team, week):
     
     #Get data
@@ -24,7 +24,7 @@ def main_best_algorithm(home_team, away_team, week):
     #Preprocess Data
 
     data = pd.read_csv('eplmatches.csv')
-    print(data)
+    #print(data)
     
     #drop columns
     data.drop('Season_End_Year', inplace=True, axis=1)
@@ -66,7 +66,7 @@ def main_best_algorithm(home_team, away_team, week):
     print(data)
     
     #Call Naive Bayes and print results
-    NaiveBayes()
+    NaiveBayes(data)
     #Run Decision Tree Algorithem and print results
     
     
@@ -76,8 +76,17 @@ def main_best_algorithm(home_team, away_team, week):
     #else Decsion tree better
         #print decison tree
     
-def NaiveBayes():
+def NaiveBayes(dataset):
     print('in naive bayes')
+    #seperate FTR out to variable
+    ftr = dataset.pop('FTR')
+    print(ftr)
+    print(dataset)
+    
+    categorical = naive_bayes.CategoricalNB() 
+    categorical.fit(dataset, ftr)
+    print(categorical)
+    #predictions = categorical.pred
 
 if __name__ == "__main__":
     main_best_algorithm("Liverpool", "Chelsea", 4)
