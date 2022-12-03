@@ -88,7 +88,7 @@ def main_best_algorithm(home_team, away_team, week):
     NaiveBayes(train, test)
     
     #Run Decision Tree Algorithem and print results
-    
+    DecisionTree(train, test)
     
     #Compare scores of Naive bayes and Decision tree
     #if Naive Bayes better
@@ -100,13 +100,13 @@ def NaiveBayes(dataset_train, dataset_test):
     print('in naive bayes')
     #seperate FTR out to variable for train
     ftr_train = dataset_train.pop('FTR')
-    print(ftr_train)
-    print(dataset_train)
+    #print(ftr_train)
+    #print(dataset_train)
     
     #seperate FTR out to variable for test
     ftr_test = dataset_test.pop('FTR')
-    print(ftr_test)
-    print(dataset_test)
+    #print(ftr_test)
+    #print(dataset_test)
     
     #create model using train
     categorical = naive_bayes.CategoricalNB() 
@@ -116,7 +116,41 @@ def NaiveBayes(dataset_train, dataset_test):
     predictions = categorical.predict(dataset_test)
     accuracy = metrics.accuracy_score(ftr_test, predictions)
     print(accuracy)
-    #TODO: precision and f1 for multi
+    f1 = metrics.f1_score(ftr_test, predictions, average=None)
+    print(f1) # one value for draw, away, home each
+    precision = metrics.precision_score(ftr_test, predictions, average = None)
+    print(precision)
+    dataset_train.insert(3, 'FTR',ftr_train)
+    dataset_test.insert(3, 'FTR',ftr_test)
+
+
+
+def DecisionTree(dataset_train, dataset_test):
+    print('in decsion tree')
+    #seperate FTR out to variable for train
+    ftr_train = dataset_train.pop('FTR')
+    #print(ftr_train)
+    #print(dataset_train)
+    
+    #seperate FTR out to variable for test
+    ftr_test = dataset_test.pop('FTR')
+    #print(ftr_test)
+    #print(dataset_test)
+    
+    #create model using train
+    decision = tree.DecisionTreeClassifier() 
+    decision.fit(dataset_train, ftr_train)
+    
+    #use model to predict test
+    predictions = decision.predict(dataset_test)
+    accuracy = metrics.accuracy_score(ftr_test, predictions)
+    print()
+    print(accuracy)
+    f1 = metrics.f1_score(ftr_test, predictions, average=None)
+    print(f1) # one value for draw, away, home each
+    precision = metrics.precision_score(ftr_test, predictions, average = None)
+    print(precision)
+
 
 if __name__ == "__main__":
     main_best_algorithm("Liverpool", "Chelsea", 4)
