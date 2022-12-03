@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 import time
 from dask import dataframe as df1
-from sklearn import preprocessing, tree, naive_bayes
+from sklearn import preprocessing, tree, naive_bayes, metrics
 def main_best_algorithm(home_team, away_team, week):
     
     #Get data
@@ -24,22 +24,32 @@ def main_best_algorithm(home_team, away_team, week):
     #Preprocess Data
 
     data = pd.read_csv('eplmatches.csv')
+    train = pd.read_csv('train.csv')
+    test = pd.read_csv('test.csv')
     #print(data)
     
     #drop columns
-    data.drop('Season_End_Year', inplace=True, axis=1)
+    train.drop('Season_End_Year', inplace=True, axis=1)
+    test.drop('Season_End_Year', inplace=True, axis=1)
+
     #date
-    data.drop('Date', inplace=True, axis=1)
+    train.drop('Date', inplace=True, axis=1)
+    test.drop('Date', inplace=True, axis=1)
+
       
     #home goals
-    data.drop('HomeGoals', inplace=True, axis=1)
+    train.drop('HomeGoals', inplace=True, axis=1)
+    test.drop('HomeGoals', inplace=True, axis=1)
+
 
     #away goals
-    data.drop('AwayGoals', inplace=True, axis=1)
+    train.drop('AwayGoals', inplace=True, axis=1)
+    test.drop('AwayGoals', inplace=True, axis=1)
 
     
     print("\nCSV Data after deleting the column 'year':\n")
-    print(data)
+    print(train)
+    print(test)
     
     #convert teams to numbers
     #dataset with words
@@ -53,20 +63,30 @@ def main_best_algorithm(home_team, away_team, week):
     #insert transformed clumn back into data
     #repeat awayteam and ftr
     
+    #fit with data
     le1.fit(data.get('Home'))
-    
-    data.insert(1,'Home',le1.transform(data.pop('Home')))
-    
-    data.insert(2,'Away',le1.transform(data.pop('Away')))
-    
     le2.fit(data.get('FTR'))
-    
-    data.insert(3, 'FTR',le2.transform(data.pop('FTR')))
 
-    print(data)
+    #transform train and test
+    train.insert(1,'Home',le1.transform(train.pop('Home')))
+    
+    train.insert(2,'Away',le1.transform(train.pop('Away')))
+    
+    train.insert(3, 'FTR',le2.transform(train.pop('FTR')))
+    
+    test.insert(1,'Home',le1.transform(test.pop('Home')))
+    
+    test.insert(2,'Away',le1.transform(test.pop('Away')))
+    
+    test.insert(3, 'FTR',le2.transform(test.pop('FTR')))
+
+
+    print(train)
+    print(test)
     
     #Call Naive Bayes and print results
-    NaiveBayes(data)
+    NaiveBayes(train, test)
+    
     #Run Decision Tree Algorithem and print results
     
     
@@ -76,17 +96,27 @@ def main_best_algorithm(home_team, away_team, week):
     #else Decsion tree better
         #print decison tree
     
-def NaiveBayes(dataset):
+def NaiveBayes(dataset_train, dataset_test):
     print('in naive bayes')
-    #seperate FTR out to variable
-    ftr = dataset.pop('FTR')
-    print(ftr)
-    print(dataset)
+    #seperate FTR out to variable for train
+    ftr_train = dataset_train.pop('FTR')
+    print(ftr_train)
+    print(dataset_train)
     
+    #seperate FTR out to variable for test
+    ftr_test = dataset_test.pop('FTR')
+    print(ftr_test)
+    print(dataset_test)
+    
+    #create model using train
     categorical = naive_bayes.CategoricalNB() 
-    categorical.fit(dataset, ftr)
-    print(categorical)
-    #predictions = categorical.pred
+    categorical.fit(dataset_train, ftr_train)
+    
+    #use model to predict test
+    predictions = categorical.predict(dataset_test)
+    accuracy = metrics.accuracy_score(ftr_test, predictions)
+    print(accuracy)
+    #TODO: precision and f1 for multi
 
 if __name__ == "__main__":
     main_best_algorithm("Liverpool", "Chelsea", 4)
