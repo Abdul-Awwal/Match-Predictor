@@ -51,40 +51,33 @@ def main_is_wk_important():
     #away goals
     train.drop('AwayGoals', inplace=True, axis=1)
     test.drop('AwayGoals', inplace=True, axis=1)
+    
+    #week column
+    train.drop('Wk', inplace=True, axis=1)
+    test.drop('Wk', inplace=True, axis=1)    
 
     
-    print("\nCSV Data after deleting the column 'year':\n")
+    print("\nCSV Data after deleting the columns:\n")
     print(train)
     print(test)
     
-    #convert teams to numbers
-    #dataset with words
-    #pop column hometeam
-    #le1.fit(data.pop('Home'))
-    #print("home popped")
-    #print(data.pop('Home'))
-    #print(data)
-    
-    #labelencoder variable with home team
-    #insert transformed clumn back into data
-    #repeat awayteam and ftr
     
     #fit with data
     le1.fit(data.get('Home'))
     le2.fit(data.get('FTR'))
 
     #transform train and test
-    train.insert(1,'Home',le1.transform(train.pop('Home')))
+    train.insert(0,'Home',le1.transform(train.pop('Home')))
     
-    train.insert(2,'Away',le1.transform(train.pop('Away')))
+    train.insert(1,'Away',le1.transform(train.pop('Away')))
     
-    train.insert(3, 'FTR',le2.transform(train.pop('FTR')))
+    train.insert(2, 'FTR',le2.transform(train.pop('FTR')))
     
-    test.insert(1,'Home',le1.transform(test.pop('Home')))
+    test.insert(0,'Home',le1.transform(test.pop('Home')))
     
-    test.insert(2,'Away',le1.transform(test.pop('Away')))
+    test.insert(1,'Away',le1.transform(test.pop('Away')))
     
-    test.insert(3, 'FTR',le2.transform(test.pop('FTR')))
+    test.insert(2, 'FTR',le2.transform(test.pop('FTR')))
 
 
     print(train)
@@ -118,8 +111,8 @@ def NaiveBayes(dataset_train, dataset_test):
     print(f1) # one value for draw, away, home each
     precision = metrics.precision_score(ftr_test, predictions, average = None)
     print(precision)
-    dataset_train.insert(3, 'FTR',ftr_train)
-    dataset_test.insert(3, 'FTR',ftr_test)
+    dataset_train.insert(2, 'FTR',ftr_train)
+    dataset_test.insert(2, 'FTR',ftr_test)
 
 
 if __name__ == "__main__":

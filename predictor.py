@@ -47,7 +47,7 @@ def main_best_algorithm(home_team, away_team, week):
     test.drop('AwayGoals', inplace=True, axis=1)
 
     
-    print("\nCSV Data after deleting the column 'year':\n")
+    print("\nCSV Data after deleting the columns:\n")
     print(train)
     print(test)
     
