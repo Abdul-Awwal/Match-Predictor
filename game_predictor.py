@@ -12,7 +12,12 @@ import numpy as np
 import time
 from dask import dataframe as df1
 from sklearn import preprocessing, tree, naive_bayes, metrics
-def main_best_algorithm(home_team, away_team, week):
+def main_best_algorithm(week, home_team, away_team, ftr):
+    #get user input
+    #week = input('Input match week number: ')
+    #home_team = input('Input home team: ')
+    #away_team = input('Input away team: ')
+    
     
     #Get data
     # time taken to read data
@@ -24,35 +29,48 @@ def main_best_algorithm(home_team, away_team, week):
 
     print("Read with dask: ", (e_time_dask-s_time_dask), "seconds")
     print(home_team, away_team, week)
+    print(type(week))
     
     # data
     dask_df.head(10)
     
     #Preprocess Data
+    #write input to acsv file
+    match_input ={'Wk': [week],'Home': [home_team],'Away':[away_team],'FTR':[ftr]}
+    
+    # creating dataframe from the above dictionary of lists
+    dataFrame = pd.DataFrame(match_input)
+    print("DataFrame...",dataFrame)
+    dataFrame.to_csv("test_matches.csv")
 
     data = pd.read_csv('eplmatches.csv')
-    train = pd.read_csv('train.csv')
-    test = pd.read_csv('test.csv')
+    train = pd.read_csv('eplmatches.csv')
+    test = pd.read_csv('test_matches.csv')
+
+    #test2.insert(2,'Home',(test.pop('Home')))
+
+    
     #print(data)
     
     #drop columns
     train.drop('Season_End_Year', inplace=True, axis=1)
-    test.drop('Season_End_Year', inplace=True, axis=1)
+    #test.drop('Season_End_Year', inplace=True, axis=1)
 
     #date
     train.drop('Date', inplace=True, axis=1)
-    test.drop('Date', inplace=True, axis=1)
+    #test.drop('Date', inplace=True, axis=1)
 
       
     #home goals
     train.drop('HomeGoals', inplace=True, axis=1)
-    test.drop('HomeGoals', inplace=True, axis=1)
+    #test.drop('HomeGoals', inplace=True, axis=1)
 
 
     #away goals
     train.drop('AwayGoals', inplace=True, axis=1)
-    test.drop('AwayGoals', inplace=True, axis=1)
+    #test.drop('AwayGoals', inplace=True, axis=1)
 
+    test.drop(test.columns[0], inplace=True, axis=1)
     
     print("\nCSV Data after deleting the columns:\n")
     print(train)
@@ -92,18 +110,10 @@ def main_best_algorithm(home_team, away_team, week):
     print(test)
     
     #Call Naive Bayes and print results
-    naiveBayes(train, test)
+    naiveBayes(train, test,le2)
     
-    #Run Decision Tree Algorithem and print results
-    decisionTree(train, test)
     
-    #Compare scores of Naive bayes and Decision tree
-    #if Naive Bayes better
-        #Print Naive Bayes
-    #else Decsion tree better
-        #print decison tree
-    
-def naiveBayes(dataset_train, dataset_test):
+def naiveBayes(dataset_train, dataset_test,le2):
     print('in naive bayes')
     #seperate FTR out to variable for train
     ftr_train = dataset_train.pop('FTR')
@@ -122,45 +132,19 @@ def naiveBayes(dataset_train, dataset_test):
     #use model to predict test
     predictions = categorical.predict(dataset_test)
     print("predictions")
-    print(predictions)
+    print(le2.inverse_transform(predictions))
+    
     accuracy = metrics.accuracy_score(ftr_test, predictions)
     print(accuracy)
     f1 = metrics.f1_score(ftr_test, predictions, average=None)
     print(f1) # one value for draw, away, home each
-    precision = metrics.precision_score(ftr_test, predictions, average = None)
+    precision = metrics.precision_score(ftr_test, predictions, average = None,zero_division=0)
     print(precision)
+    
     dataset_train.insert(3, 'FTR',ftr_train)
     dataset_test.insert(3, 'FTR',ftr_test)
 
 
-
-def decisionTree(dataset_train, dataset_test):
-    print('in decsion tree')
-    #seperate FTR out to variable for train
-    ftr_train = dataset_train.pop('FTR')
-    #print(ftr_train)
-    #print(dataset_train)
-    
-    #seperate FTR out to variable for test
-    ftr_test = dataset_test.pop('FTR')
-    #print(ftr_test)
-    #print(dataset_test)
-    
-    #create model using train
-    decision = tree.DecisionTreeClassifier() 
-    decision.fit(dataset_train, ftr_train)
-    
-    #use model to predict test
-    predictions = decision.predict(dataset_test)
-    accuracy = metrics.accuracy_score(ftr_test, predictions)
-    print()
-    print(accuracy)
-    f1 = metrics.f1_score(ftr_test, predictions, average=None)
-    print(f1) # one value for draw, away, home each
-    precision = metrics.precision_score(ftr_test, predictions, average = None)
-    print(precision)
-
-
 if __name__ == "__main__":
-    main_best_algorithm("Liverpool", "Chelsea", 4)
+    main_best_algorithm(1, 'Fulham','Liverpool','D')
     
