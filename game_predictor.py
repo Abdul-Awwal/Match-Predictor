@@ -110,10 +110,10 @@ def main_best_algorithm(week, home_team, away_team, ftr):
     print(test)
     
     #Call Naive Bayes and print results
-    naiveBayes(train, test,le2)
+    naiveBayes(train, test,le2,home_team,away_team)
     
     
-def naiveBayes(dataset_train, dataset_test,le2):
+def naiveBayes(dataset_train, dataset_test,le2,home_team, away_team):
     print('in naive bayes')
     #seperate FTR out to variable for train
     ftr_train = dataset_train.pop('FTR')
@@ -132,7 +132,15 @@ def naiveBayes(dataset_train, dataset_test,le2):
     #use model to predict test
     predictions = categorical.predict(dataset_test)
     print("predictions")
-    print(le2.inverse_transform(predictions))
+    
+    predictions2 = le2.inverse_transform(predictions)
+    print(predictions2)
+    if(predictions2[0]=='H'):
+        print(home_team,'will win!')
+    elif(predictions2[0]=='A'):
+        print(away_team,' will win!')
+    else:
+        print('It will be a draw!')
     
     accuracy = metrics.accuracy_score(ftr_test, predictions)
     print(accuracy)
@@ -143,8 +151,8 @@ def naiveBayes(dataset_train, dataset_test,le2):
     
     dataset_train.insert(3, 'FTR',ftr_train)
     dataset_test.insert(3, 'FTR',ftr_test)
-
+    
 
 if __name__ == "__main__":
-    main_best_algorithm(1, 'Fulham','Liverpool','D')
+    main_best_algorithm(1, 'Everton','Chelsea','A')
     
