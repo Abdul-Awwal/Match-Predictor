@@ -21,7 +21,7 @@ def main_best_algorithm(home_team, away_team, week):
     
     #Preprocess Data
 
-    data = pd.read_csv('train.csv')
+    data = pd.read_csv('eplmatches.csv')
     #print(data)
     
     
@@ -31,8 +31,11 @@ def main_best_algorithm(home_team, away_team, week):
     data.insert(3,'Home',le1.transform(data.pop('Home')))
     data.insert(6,'Away',le1.transform(data.pop('Away')))
     data.insert(7,'FTR',le2.transform(data.pop('FTR')))
-    name = le1.inverse_transform([1])
-    winloss(name, le1, data)
+    value = range(50)
+    for i in value: 
+        name = le1.inverse_transform([i])
+        winloss(name, le1, data)
+        
 
 def winloss(name, le1, data):
     number = le1.transform(name)
