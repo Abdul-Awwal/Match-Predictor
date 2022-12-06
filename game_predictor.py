@@ -92,10 +92,10 @@ def main_best_algorithm(home_team, away_team, week):
     print(test)
     
     #Call Naive Bayes and print results
-    NaiveBayes(train, test)
+    naiveBayes(train, test)
     
     #Run Decision Tree Algorithem and print results
-    DecisionTree(train, test)
+    decisionTree(train, test)
     
     #Compare scores of Naive bayes and Decision tree
     #if Naive Bayes better
@@ -103,7 +103,7 @@ def main_best_algorithm(home_team, away_team, week):
     #else Decsion tree better
         #print decison tree
     
-def NaiveBayes(dataset_train, dataset_test):
+def naiveBayes(dataset_train, dataset_test):
     print('in naive bayes')
     #seperate FTR out to variable for train
     ftr_train = dataset_train.pop('FTR')
@@ -134,7 +134,7 @@ def NaiveBayes(dataset_train, dataset_test):
 
 
 
-def DecisionTree(dataset_train, dataset_test):
+def decisionTree(dataset_train, dataset_test):
     print('in decsion tree')
     #seperate FTR out to variable for train
     ftr_train = dataset_train.pop('FTR')
