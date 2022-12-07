@@ -120,6 +120,8 @@ def naiveBayes(dataset_train, dataset_test):
     print(f1) # one value for draw, away, home each
     precision = metrics.precision_score(ftr_test, predictions, average = None)
     print(precision)
+    matrix = metrics.confusion_matrix(ftr_test, predictions)
+    print(matrix)
     dataset_train.insert(3, 'FTR',ftr_train)
     dataset_test.insert(3, 'FTR',ftr_test)
 
@@ -150,6 +152,8 @@ def decisionTree(dataset_train, dataset_test):
     print(f1) # one value for draw, away, home each
     precision = metrics.precision_score(ftr_test, predictions, average = None)
     print(precision)
+    matrix = metrics.confusion_matrix(ftr_test, predictions)
+    print(matrix)
 
 
 if __name__ == "__main__":
