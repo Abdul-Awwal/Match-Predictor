@@ -3,7 +3,10 @@
 Created on Mon Dec  5 13:08:11 2022
 
 @author: Sarah
+# For RQ2, determines whether week column is important
+
 """
+
 
 # import required modules
 import pandas as pd

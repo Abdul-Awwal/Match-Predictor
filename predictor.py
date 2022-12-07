@@ -1,4 +1,6 @@
 
+# For RQ1, determines whether Naive Bayes or Decision Tree is better
+
 # import required modules
 import pandas as pd
 import numpy as np
@@ -24,6 +26,9 @@ def main_best_algorithm(home_team, away_team, week):
     #Preprocess Data
 
     data = pd.read_csv('eplmatches.csv')
+    matches = pd.read_csv('eplmatches.csv')
+    print('matches:')
+    print(matches)
     train = pd.read_csv('train.csv')
     test = pd.read_csv('test.csv')
     #print(data)

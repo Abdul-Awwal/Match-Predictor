@@ -1,0 +1,161 @@
+,Wk,Home,Away,Predictions,Result
+0,1,Crystal Palace,Arsenal,A,0 - 2
+1,1,Fulham,Liverpool,A,2 - 2
+2,1,Bournemouth,Aston Villa,A,2 - 0
+3,1,Leeds United,Wolves,H,2 - 1
+4,1,Newcastle Utd,Nott'ham Forest,H,2 - 0
+5,1,Tottenham,Southampton,H,4 - 1
+6,1,Everton,Chelsea,A,0 - 1
+7,1,Leicester City,Brentford,A,2 - 2
+8,1,Manchester Utd,Brighton,H,1 - 2
+9,1,West Ham,Manchester City,A,0 - 2
+10,2,Aston Villa,Everton,H,2 - 1
+11,2,Arsenal,Leicester City,H,4 - 2
+12,2,Brighton,Newcastle Utd,D,0 - 0
+13,2,Manchester City,Bournemouth,H,4 - 0
+14,2,Southampton,Leeds United,H,2 - 2
+15,2,Wolves,Fulham,H,0 - 0
+16,2,Brentford,Manchester Utd,A,4 - 0
+17,2,Nott'ham Forest,West Ham,H,1 - 0
+18,2,Chelsea,Tottenham,H,2 - 2
+19,2,Liverpool,Crystal Palace,H,1 - 1
+20,3,Tottenham,Wolves,H,1 - 0
+21,3,Crystal Palace,Aston Villa,A,3 - 1
+22,3,Everton,Nott'ham Forest,H,1 - 1
+23,3,Fulham,Brentford,A,3 - 2
+24,3,Leicester City,Southampton,H,1 - 2
+25,3,Bournemouth,Arsenal,A,0 - 3
+26,3,Leeds United,Chelsea,A,3 - 0
+27,3,West Ham,Brighton,H,0 - 2
+28,3,Newcastle Utd,Manchester City,A,3 - 3
+29,3,Manchester Utd,Liverpool,H,2 - 1
+30,4,Southampton,Manchester Utd,A,0 - 1
+31,4,Brentford,Everton,A,1 - 1
+32,4,Brighton,Leeds United,D,1 - 0
+33,4,Chelsea,Leicester City,H,2 - 1
+34,4,Liverpool,Bournemouth,H,9 - 0
+35,4,Manchester City,Crystal Palace,H,4 - 2
+36,4,Arsenal,Fulham,H,2 - 1
+37,4,Aston Villa,West Ham,H,0 - 1
+38,4,Wolves,Newcastle Utd,H,1 - 1
+39,4,Nott'ham Forest,Tottenham,A,0 - 2
+40,5,Fulham,Brighton,H,2 - 1
+41,5,Crystal Palace,Brentford,A,1 - 1
+42,5,Southampton,Chelsea,A,2 - 1
+43,5,Leeds United,Everton,H,1 - 1
+44,5,Bournemouth,Wolves,H,0 - 0
+45,5,Arsenal,Aston Villa,H,2 - 1
+46,5,Manchester City,Nott'ham Forest,H,6 - 0
+47,5,West Ham,Tottenham,A,1 - 1
+48,5,Liverpool,Newcastle Utd,H,2 - 1
+49,5,Leicester City,Manchester Utd,A,0 - 1
+50,6,Everton,Liverpool,A,0 - 0
+51,6,Brentford,Leeds United,A,5 - 2
+52,6,Chelsea,West Ham,H,2 - 1
+53,6,Newcastle Utd,Crystal Palace,H,0 - 0
+54,6,Nott'ham Forest,Bournemouth,H,2 - 3
+55,6,Tottenham,Fulham,H,2 - 1
+56,6,Wolves,Southampton,H,1 - 0
+57,6,Aston Villa,Manchester City,A,1 - 1
+58,6,Brighton,Leicester City,A,5 - 2
+59,6,Manchester Utd,Arsenal,H,3 - 1
+60,7,Fulham,Chelsea,A,
+61,7,Bournemouth,Brighton,H,
+62,7,Leicester City,Aston Villa,H,
+63,7,Liverpool,Wolves,H,
+64,7,Southampton,Brentford,H,
+65,7,Manchester City,Tottenham,H,
+66,7,Arsenal,Everton,H,
+67,7,West Ham,Newcastle Utd,H,
+68,7,Crystal Palace,Manchester Utd,A,
+69,7,Leeds United,Nott'ham Forest,H,
+70,8,Aston Villa,Southampton,H,1 - 0
+71,8,Nott'ham Forest,Fulham,D,2 - 3
+72,8,Wolves,Manchester City,A,0 - 3
+73,8,Brighton,Crystal Palace,D,
+74,8,Newcastle Utd,Bournemouth,H,1 - 1
+75,8,Tottenham,Leicester City,H,6 - 2
+76,8,Brentford,Arsenal,A,0 - 3
+77,8,Manchester Utd,Leeds United,H,
+78,8,Everton,West Ham,H,1 - 0
+79,8,Chelsea,Liverpool,H,
+80,9,Arsenal,Tottenham,H,3 - 1
+81,9,Bournemouth,Brentford,A,0 - 0
+82,9,Crystal Palace,Chelsea,A,1 - 2
+83,9,Fulham,Newcastle Utd,H,1 - 4
+84,9,Liverpool,Brighton,H,3 - 3
+85,9,Southampton,Everton,H,1 - 2
+86,9,West Ham,Wolves,H,2 - 0
+87,9,Manchester City,Manchester Utd,A,6 - 3
+88,9,Leeds United,Aston Villa,H,0 - 0
+89,9,Leicester City,Nott'ham Forest,H,4 - 0
+90,10,Bournemouth,Leicester City,A,2 - 1
+91,10,Chelsea,Wolves,H,3 - 0
+92,10,Manchester City,Southampton,H,4 - 0
+93,10,Newcastle Utd,Brentford,H,5 - 1
+94,10,Brighton,Tottenham,A,0 - 1
+95,10,Crystal Palace,Leeds United,A,2 - 1
+96,10,West Ham,Fulham,H,3 - 1
+97,10,Arsenal,Liverpool,H,3 - 2
+98,10,Everton,Manchester Utd,A,1 - 2
+99,10,Nott'ham Forest,Aston Villa,A,1 - 1
+100,11,Brentford,Brighton,H,2 - 0
+101,11,Leicester City,Crystal Palace,H,0 - 0
+102,11,Fulham,Bournemouth,H,2 - 2
+103,11,Wolves,Nott'ham Forest,H,1 - 0
+104,11,Tottenham,Everton,H,2 - 0
+105,11,Aston Villa,Chelsea,A,0 - 2
+106,11,Leeds United,Arsenal,H,0 - 1
+107,11,Manchester Utd,Newcastle Utd,H,0 - 0
+108,11,Southampton,West Ham,H,1 - 1
+109,11,Liverpool,Manchester City,H,1 - 0
+110,12,Brighton,Nott'ham Forest,D,0 - 0
+111,12,Crystal Palace,Wolves,H,2 - 1
+112,12,Bournemouth,Southampton,H,0 - 1
+113,12,Arsenal,Manchester City,H,
+114,12,Brentford,Chelsea,A,0 - 0
+115,12,Newcastle Utd,Everton,H,1 - 0
+116,12,Liverpool,West Ham,H,1 - 0
+117,12,Manchester Utd,Tottenham,H,2 - 0
+118,12,Fulham,Aston Villa,H,3 - 0
+119,12,Leicester City,Leeds United,H,2 - 0
+120,13,Nott'ham Forest,Liverpool,A,1 - 0
+121,13,Everton,Crystal Palace,H,3 - 0
+122,13,Manchester City,Brighton,H,3 - 1
+123,13,Chelsea,Manchester Utd,D,1 - 1
+124,13,Aston Villa,Brentford,H,4 - 0
+125,13,Leeds United,Fulham,H,2 - 3
+126,13,Southampton,Arsenal,A,1 - 1
+127,13,Wolves,Leicester City,H,0 - 4
+128,13,Tottenham,Newcastle Utd,H,1 - 2
+129,13,West Ham,Bournemouth,H,2 - 0
+130,14,Leicester City,Manchester City,A,0 - 1
+131,14,Bournemouth,Tottenham,A,2 - 3
+132,14,Brentford,Wolves,H,1 - 1
+133,14,Brighton,Chelsea,A,4 - 1
+134,14,Crystal Palace,Southampton,H,1 - 0
+135,14,Newcastle Utd,Aston Villa,H,4 - 0
+136,14,Fulham,Everton,H,0 - 0
+137,14,Liverpool,Leeds United,H,1 - 2
+138,14,Arsenal,Nott'ham Forest,H,5 - 0
+139,14,Manchester Utd,West Ham,H,1 - 0
+140,15,Leeds United,Bournemouth,H,4 - 3
+141,15,Manchester City,Fulham,H,2 - 1
+142,15,Nott'ham Forest,Brentford,H,2 - 2
+143,15,Wolves,Brighton,H,2 - 3
+144,15,Everton,Leicester City,H,0 - 2
+145,15,Chelsea,Arsenal,H,0 - 1
+146,15,Aston Villa,Manchester Utd,A,3 - 1
+147,15,Southampton,Newcastle Utd,H,1 - 4
+148,15,West Ham,Crystal Palace,H,1 - 2
+149,15,Tottenham,Liverpool,H,1 - 2
+150,16,Manchester City,Brentford,H,1 - 2
+151,16,Bournemouth,Everton,H,3 - 0
+152,16,Liverpool,Southampton,H,3 - 1
+153,16,Nott'ham Forest,Crystal Palace,H,1 - 0
+154,16,Tottenham,Leeds United,H,4 - 3
+155,16,West Ham,Leicester City,H,0 - 2
+156,16,Newcastle Utd,Chelsea,A,1 - 0
+157,16,Wolves,Arsenal,A,0 - 2
+158,16,Brighton,Aston Villa,D,1 - 2
+159,16,Fulham,Manchester Utd,A,1 - 2
